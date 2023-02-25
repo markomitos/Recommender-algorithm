@@ -86,9 +86,11 @@ if __name__ == '__main__':
 
     clf = RandomForestClassifier(random_state=0)
 
+    predict=np.zeros(shape=(nannexes.shape[1],nannexes.shape[0]))
+
     for i in range(nannexes.shape[1]):        
         clf.fit(trainVector,nannexes[:,i])
-        clf.predict(testVector)   
+        predict[i]=clf.predict(testVector)   
         print(clf.predict(testVector))
 
     
